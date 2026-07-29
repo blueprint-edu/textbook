@@ -1,0 +1,160 @@
+/* Home page styles */
+
+.hero {
+  background: linear-gradient(135deg, var(--bp-blue-50) 0%, #e0f2fe 100%);
+  padding: 5rem 0 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--bp-color-border-subtle);
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #0c1f33 0%, #0a2544 100%);
+  border-bottom-color: var(--bp-color-border);
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--bp-blue-900);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="dark"] .heroTitle {
+  color: var(--bp-color-text-primary);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--bp-color-text-secondary);
+  max-width: 56ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Features section */
+.features {
+  padding: 4rem 0;
+  background: var(--bp-color-surface-bg);
+}
+
+.featuresTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--bp-blue-900);
+}
+
+[data-theme="dark"] .featuresTitle {
+  color: var(--bp-color-text-primary);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  background: var(--bp-color-page-bg);
+  border: 1px solid var(--bp-color-border-subtle);
+  border-radius: 8px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .featureCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+  }
+}
+
+.featureEmoji {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  line-height: 1;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bp-blue-800);
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+[data-theme="dark"] .featureTitle {
+  color: var(--bp-color-primary);
+}
+
+.featureDescription {
+  color: var(--bp-color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Table of contents preview */
+.toc {
+  padding: 4rem 0;
+  background: var(--bp-color-page-bg);
+  border-top: 1px solid var(--bp-color-border-subtle);
+}
+
+.tocTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--bp-blue-900);
+}
+
+[data-theme="dark"] .tocTitle {
+  color: var(--bp-color-text-primary);
+}
+
+.tocGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.tocCard {
+  padding: 1.25rem 1.5rem;
+  background: var(--bp-color-surface-bg);
+  border: 1px solid var(--bp-color-border-subtle);
+  border-left: 4px solid var(--bp-color-primary);
+  border-radius: 4px;
+}
+
+.tocChapterNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bp-color-primary);
+}
+
+.tocChapterTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.25rem 0;
+  color: var(--bp-color-text-primary);
+}
+
+.tocChapterDesc {
+  font-size: 0.875rem;
+  color: var(--bp-color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}

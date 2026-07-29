@@ -1,0 +1,129 @@
+name: Validate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Minimal permissions - no deployment credentials
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      # No lockfile is committed, so resolution happens on every run.
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Lint code
+        run: pnpm lint:code
+
+      - name: Lint Markdown
+        run: pnpm lint:markdown
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Validate content
+        run: pnpm validate:content
+
+      - name: Validate links
+        run: pnpm validate:links
+
+      - name: Extract examples
+        run: pnpm examples:extract
+
+      - name: Type-check examples
+        run: pnpm examples:typecheck
+
+      - name: Run unit tests
+        run: pnpm test:unit
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Upload example reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-reports
+          path: generated/examples/*.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Generate job summary
+        if: always()
+        run: |
+          {
+            echo "## Validation Summary"
+            echo ""
+            if [ -f "generated/examples/summary.md" ]; then
+              cat generated/examples/summary.md
+            else
+              echo "_No example manifest was produced._"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  e2e:
+    name: End-to-end & accessibility
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Run end-to-end and accessibility tests
+        run: pnpm test:e2e
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7

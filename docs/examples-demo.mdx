@@ -1,0 +1,123 @@
+---
+title: Live Examples Demo
+sidebar_position: 0
+---
+
+This page demonstrates every supported example state. Each playground is interactive — you can edit the code and click **Run**.
+
+## 1. TypeScript with Console Output
+
+A plain TypeScript example that logs to the console.
+
+```ts live id=demo-ts-console title="TypeScript with console output" expect=pass console=open
+const courseName: string = "Software Engineering";
+const year: number = 2025;
+console.log(`Welcome to ${courseName}, ${year}!`);
+```
+
+## 2. React Component Output
+
+A React component rendered in the result pane.
+
+```tsx live id=demo-react-component title="React component output" expect=pass view=result height=200
+type GreetingProps = { name: string };
+
+function Greeting({ name }: GreetingProps) {
+  return (
+    <div style={{ fontFamily: "sans-serif", padding: "1rem" }}>
+      <h2>Hello, {name}!</h2>
+      <p>Welcome to Blueprint.</p>
+    </div>
+  );
+}
+
+export default function App() {
+  return <Greeting name="Ada" />;
+}
+```
+
+## 3. React Plus Console Output
+
+A React component that also writes to the console.
+
+```tsx live id=demo-react-console title="React plus console output" expect=pass console=open
+export default function App() {
+  console.log("Component rendered at:", new Date().toISOString());
+  return (
+    <div style={{ fontFamily: "sans-serif", padding: "1rem" }}>
+      <p>Check the console panel below!</p>
+    </div>
+  );
+}
+```
+
+## 4. Intentional TypeScript Error
+
+This example contains a deliberate type error to illustrate TypeScript diagnostics.
+
+```ts live id=demo-type-error title="Intentional TypeScript error" expect=type-error errors=2322
+// TypeScript error TS2322: Type 'string' is not assignable to type 'number'
+const enrollment: number = "twenty";
+console.log(enrollment);
+```
+
+## 5. Intentional Runtime Error
+
+This example throws an error intentionally as part of the lesson.
+
+```ts live id=demo-runtime-error title="Intentional runtime error" expect=runtime-error
+throw new Error("This failure is intentional — it is part of the lesson.");
+```
+
+## 6. Manually Executed Example
+
+This example is not executed automatically. Press **Run** in the playground to execute it.
+
+```tsx live id=demo-manual title="Run this manually" expect=pass run=manual view=editor height=250
+export default function App() {
+  return (
+    <div style={{ fontFamily: "sans-serif", padding: "1rem" }}>
+      <button onClick={() => alert("You ran it!")}>Run me!</button>
+    </div>
+  );
+}
+```
+
+## 7. Static, Non-Interactive Code Block
+
+This code block has **no** `live` flag. It is rendered as a static, syntax-highlighted block.
+
+```typescript
+// This is a static code block — no playground, no execution.
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+console.log(add(2, 3)); // 5
+```
+
+## 8. Skipped Example
+
+This example is excluded from automated execution. The source code is displayed, but no playground is shown.
+
+```ts live id=demo-skip title="Browser-only API" run=skip skipReason="Requires a browser permission dialog that cannot be automated"
+// This example requires interactive user permission.
+async function requestCamera() {
+  const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  console.log(stream);
+}
+requestCamera();
+```
+
+## Summary
+
+| State                | `expect`        | `run`    | Description                         |
+| -------------------- | --------------- | -------- | ----------------------------------- |
+| TypeScript + console | `pass`          | `auto`   | Runs automatically, logs to console |
+| React output         | `pass`          | `auto`   | Renders a React component           |
+| React + console      | `pass`          | `auto`   | React component with console output |
+| Type error           | `type-error`    | `auto`   | Declared TypeScript diagnostics     |
+| Runtime error        | `runtime-error` | `auto`   | Expected to throw                   |
+| Manual               | `pass`          | `manual` | Reader presses Run                  |
+| Static               | —               | —        | No `live` flag                      |
+| Skip                 | —               | `skip`   | No playground rendered              |
