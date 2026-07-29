@@ -5,7 +5,33 @@ const config = {
       displayName: "unit",
       preset: "ts-jest",
       testEnvironment: "node",
-      testMatch: ["<rootDir>/plugins/**/*.test.ts", "<rootDir>/scripts/**/*.test.ts"],
+      testMatch: ["<rootDir>/plugins/**/*.test.ts"],
+      moduleNameMapper: {
+        "^@site/(.*)$": "<rootDir>/$1",
+        // Map ESM-only packages to CJS stubs
+        "^unist-util-visit$": "<rootDir>/src/__mocks__/unistUtilVisitMock.ts",
+      },
+      transform: {
+        "^.+\\.tsx?$": [
+          "ts-jest",
+          {
+            tsconfig: {
+              module: "CommonJS",
+              moduleResolution: "Node",
+              jsx: "react",
+              esModuleInterop: true,
+              strict: false,
+              types: ["jest", "node"],
+            },
+          },
+        ],
+      },
+    },
+    {
+      displayName: "examples",
+      preset: "ts-jest",
+      testEnvironment: "node",
+      testMatch: ["<rootDir>/scripts/**/*.test.ts"],
       moduleNameMapper: {
         "^@site/(.*)$": "<rootDir>/$1",
         // Map ESM-only packages to CJS stubs

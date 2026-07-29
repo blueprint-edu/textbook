@@ -31,8 +31,9 @@ jobs:
           node-version: "22"
           cache: "pnpm"
 
+      # No lockfile is committed, so resolution happens on every run.
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Check formatting
         run: pnpm format:check
@@ -49,6 +50,9 @@ jobs:
       - name: Validate content
         run: pnpm validate:content
 
+      - name: Validate links
+        run: pnpm validate:links
+
       - name: Extract examples
         run: pnpm examples:extract
 
@@ -61,22 +65,65 @@ jobs:
       - name: Build site
         run: pnpm build
 
+      - name: Upload example reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-reports
+          path: generated/examples/*.json
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Generate job summary
         if: always()
         run: |
-          echo "## Validation Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f "build/examples/manifest.json" ]; then
-            TOTAL=$(cat build/examples/manifest.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d))")
-            PASS=$(cat build/examples/manifest.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(sum(1 for e in d if e['expectedOutcome']=='pass'))")
-            TYPE_ERR=$(cat build/examples/manifest.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(sum(1 for e in d if e['expectedOutcome']=='type-error'))")
-            RUNTIME_ERR=$(cat build/examples/manifest.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(sum(1 for e in d if e['expectedOutcome']=='runtime-error'))")
-            SKIPPED=$(cat build/examples/manifest.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(sum(1 for e in d if e['runMode']=='skip'))")
-            echo "| Metric | Count |" >> $GITHUB_STEP_SUMMARY
-            echo "| ------ | ----- |" >> $GITHUB_STEP_SUMMARY
-            echo "| Total live examples | $TOTAL |" >> $GITHUB_STEP_SUMMARY
-            echo "| Passing examples | $PASS |" >> $GITHUB_STEP_SUMMARY
-            echo "| Intentional type errors | $TYPE_ERR |" >> $GITHUB_STEP_SUMMARY
-            echo "| Intentional runtime errors | $RUNTIME_ERR |" >> $GITHUB_STEP_SUMMARY
-            echo "| Skipped examples | $SKIPPED |" >> $GITHUB_STEP_SUMMARY
-          fi
+          {
+            echo "## Validation Summary"
+            echo ""
+            if [ -f "generated/examples/summary.md" ]; then
+              cat generated/examples/summary.md
+            else
+              echo "_No example manifest was produced._"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  e2e:
+    name: End-to-end & accessibility
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Run end-to-end and accessibility tests
+        run: pnpm test:e2e
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7

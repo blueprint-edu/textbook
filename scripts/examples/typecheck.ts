@@ -10,16 +10,16 @@
  * - type-error examples have the declared diagnostic codes
  * - skip examples are type-checked unless typecheck=skip is set
  *
- * Output: build/examples/diagnostics.json
+ * Output: generated/examples/diagnostics.json
  */
 
 import fs from "fs";
 import path from "path";
 import ts from "typescript";
 
-const MANIFEST_PATH = path.join(process.cwd(), "build", "examples", "manifest.json");
-const DIAGNOSTICS_PATH = path.join(process.cwd(), "build", "examples", "diagnostics.json");
-const TEMP_DIR = path.join(process.cwd(), "build", "examples", "temp");
+const MANIFEST_PATH = path.join(process.cwd(), "generated", "examples", "manifest.json");
+const DIAGNOSTICS_PATH = path.join(process.cwd(), "generated", "examples", "diagnostics.json");
+const TEMP_DIR = path.join(process.cwd(), "generated", "examples", "temp");
 
 interface ExampleManifestEntry {
   id: string;

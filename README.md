@@ -71,7 +71,7 @@ pnpm validate:content
 # Validate internal and external links
 pnpm validate:links
 
-# Extract all live examples and write build/examples/manifest.json
+# Extract all live examples and write generated/examples/manifest.json
 pnpm examples:extract
 
 # Type-check every extracted live example

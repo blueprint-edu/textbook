@@ -24,8 +24,8 @@
     "examples:test": "jest --selectProjects examples",
     "test": "pnpm test:unit",
     "test:unit": "jest",
-    "test:e2e": "playwright test",
-    "test:a11y": "playwright test --grep @a11y",
+    "test:e2e": "playwright test --tsconfig e2e/tsconfig.json",
+    "test:a11y": "playwright test --tsconfig e2e/tsconfig.json --grep @a11y",
     "ci": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm validate && pnpm examples:extract && pnpm examples:typecheck && pnpm test:unit && pnpm build"
   },
   "dependencies": {

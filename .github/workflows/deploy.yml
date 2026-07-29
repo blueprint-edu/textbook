@@ -37,7 +37,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Check formatting
         run: pnpm format:check
@@ -45,11 +45,17 @@ jobs:
       - name: Lint code
         run: pnpm lint:code
 
+      - name: Lint Markdown
+        run: pnpm lint:markdown
+
       - name: Type check
         run: pnpm typecheck
 
       - name: Validate content
         run: pnpm validate:content
+
+      - name: Validate links
+        run: pnpm validate:links
 
       - name: Extract examples
         run: pnpm examples:extract

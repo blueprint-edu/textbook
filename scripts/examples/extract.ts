@@ -5,15 +5,16 @@
  * Parses all Markdown files in docs/ and extracts live code examples.
  * Validates metadata, detects duplicate IDs, and writes a manifest JSON.
  *
- * Output: build/examples/manifest.json
+ * Output: generated/examples/manifest.json
  */
 
 import fs from "fs";
 import path from "path";
 
 const DOCS_DIR = path.join(process.cwd(), "docs");
-const OUTPUT_DIR = path.join(process.cwd(), "build", "examples");
+const OUTPUT_DIR = path.join(process.cwd(), "generated", "examples");
 const MANIFEST_PATH = path.join(OUTPUT_DIR, "manifest.json");
+const SUMMARY_PATH = path.join(OUTPUT_DIR, "summary.md");
 
 const SUPPORTED_LANGUAGES = new Set(["ts", "typescript", "tsx", "jsx"]);
 
@@ -56,7 +57,7 @@ function findMarkdownFiles(dir: string): string[] {
   return files;
 }
 
-function extractExamplesFromFile(
+export function extractExamplesFromFile(
   filePath: string,
   seenIds: Map<string, string>,
   errors: string[],
@@ -213,6 +214,19 @@ function main(): void {
   const runtimeErrors = manifest.filter((e) => e.expectedOutcome === "runtime-error").length;
   const skipped = manifest.filter((e) => e.runMode === "skip").length;
 
+  // Markdown summary consumed by the CI job summary step.
+  const summary = [
+    "| Metric | Count |",
+    "| ------ | ----- |",
+    `| Total live examples | ${manifest.length} |`,
+    `| Passing examples | ${passing} |`,
+    `| Intentional type errors | ${typeErrors} |`,
+    `| Intentional runtime errors | ${runtimeErrors} |`,
+    `| Skipped examples | ${skipped} |`,
+    "",
+  ].join("\n");
+  fs.writeFileSync(SUMMARY_PATH, summary);
+
   console.log(`✅ Extracted ${manifest.length} live examples from ${files.length} files`);
   console.log(
     `   Pass: ${passing}  Type-error: ${typeErrors}  Runtime-error: ${runtimeErrors}  Skipped: ${skipped}`,
@@ -220,4 +234,10 @@ function main(): void {
   console.log(`   Manifest: ${MANIFEST_PATH}`);
 }
 
-main();
+/**
+ * Only run the CLI when this module is the entry point, so the extraction
+ * helpers can be imported by tests without side effects.
+ */
+if (process.argv[1] !== undefined && /extract\.ts$/.test(process.argv[1])) {
+  main();
+}
