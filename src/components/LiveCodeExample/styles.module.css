@@ -1,0 +1,199 @@
+/* LiveCodeExample component styles */
+
+/* Container */
+.container {
+  margin: 1.5rem 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-code-border-radius, 6px);
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+}
+
+.container.containerTypeError {
+  border-color: var(--bp-color-type-error-border, #d97706);
+}
+
+.container.containerRuntimeError {
+  border-color: var(--bp-color-runtime-error-border, #dc2626);
+}
+
+.container.containerManual {
+  border-color: var(--ifm-color-primary);
+}
+
+.container.containerSkipped {
+  border-color: var(--ifm-color-emphasis-300);
+  opacity: 0.9;
+}
+
+/* Caption */
+.caption {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  display: block;
+}
+
+/* Playground */
+.playground {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Loading fallback */
+.loadingFallback {
+  padding: 1rem;
+  background: var(--ifm-code-background);
+}
+
+.loadingFallback p {
+  font-size: 0.85rem;
+  color: var(--ifm-color-content-secondary);
+  margin-top: 0.5rem;
+}
+
+/* Static code fallback */
+.staticCode {
+  margin: 0;
+  padding: 1rem;
+  background: var(--ifm-code-background);
+}
+
+/* Badges and notices */
+.intentionalBadge,
+.runtimeErrorBadge,
+.manualNotice,
+.skipNotice {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.intentionalBadge {
+  background: var(--bp-color-teaching-error-bg, #fef3c7);
+  color: var(--bp-color-teaching-error-text, #92400e);
+  border-bottom: 1px solid var(--bp-color-teaching-error-border, #fbbf24);
+}
+
+.runtimeErrorBadge {
+  background: var(--bp-color-runtime-error-bg, #fee2e2);
+  color: var(--bp-color-runtime-error-text, #991b1b);
+  border-bottom: 1px solid var(--bp-color-runtime-error-border, #fca5a5);
+}
+
+.manualNotice {
+  background: var(--ifm-color-primary-lightest, #e0f2fe);
+  color: var(--ifm-color-primary-darkest, #075985);
+  border-bottom: 1px solid var(--ifm-color-primary-light, #38bdf8);
+}
+
+.skipNotice {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-content-secondary);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Diagnostics */
+.diagnostics {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.5rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.diagnosticsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.diagnosticItem {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.82rem;
+  font-family: var(--ifm-font-family-monospace);
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.diagnosticItem:last-child {
+  border-bottom: none;
+}
+
+/* Severity-specific colors */
+.diagnosticItem__error {
+  color: var(--bp-color-diagnostic-error, #b91c1c);
+}
+
+.diagnosticItem__warning {
+  color: var(--bp-color-diagnostic-warning, #92400e);
+}
+
+.diagnosticItem__suggestion {
+  color: var(--bp-color-diagnostic-suggestion, #1e3a5f);
+}
+
+.diagnosticCode {
+  font-weight: 700;
+  min-width: 4ch;
+}
+
+.diagnosticSeverity {
+  font-size: 0.9rem;
+}
+
+.diagnosticLocation {
+  color: var(--ifm-color-content-secondary);
+  white-space: nowrap;
+}
+
+.diagnosticMessage {
+  word-break: break-word;
+}
+
+.diagnosticExcerpt {
+  grid-column: 1 / -1;
+  margin-top: 0.2rem;
+  padding: 0.15rem 0.4rem;
+  background: var(--ifm-code-background);
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* Dark mode */
+[data-theme="dark"] .intentionalBadge {
+  background: #451a03;
+  color: #fef3c7;
+  border-color: #78350f;
+}
+
+[data-theme="dark"] .runtimeErrorBadge {
+  background: #450a0a;
+  color: #fee2e2;
+  border-color: #7f1d1d;
+}
+
+[data-theme="dark"] .manualNotice {
+  background: #0c2a40;
+  color: #bae6fd;
+  border-color: #075985;
+}
+
+[data-theme="dark"] .diagnosticItem__error {
+  color: #f87171;
+}
+
+[data-theme="dark"] .diagnosticItem__warning {
+  color: #fbbf24;
+}
+
+[data-theme="dark"] .diagnosticItem__suggestion {
+  color: #93c5fd;
+}

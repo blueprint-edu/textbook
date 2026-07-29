@@ -141,3 +141,23 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Blueprint textbook generated artifacts
+/generated/
+/build/
+/playwright-report/
+/test-results/
+
+# Docusaurus build output
+build/
+.docusaurus/
+
+# Generated examples
+build/examples/
+
+# Playwright
+playwright-report/
+test-results/
+
+# pnpm store
+.pnpm-store/

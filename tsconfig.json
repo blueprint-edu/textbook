@@ -1,0 +1,25 @@
+// This file is not used by "docusaurus start/build" commands directly.
+// It improves IDE experience and is used by the "typecheck" script.
+{
+  "extends": "@docusaurus/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "strict": true,
+    "paths": {
+      "@site/*": ["./*"]
+    },
+    "types": ["@types/jest", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "src/**/*",
+    "plugins/**/*",
+    "scripts/**/*",
+    "e2e/**/*",
+    "docusaurus.config.ts",
+    "sidebars.ts",
+    "eslint.config.ts",
+    "playwright.config.ts"
+  ],
+  "exclude": ["node_modules", "build", ".docusaurus"]
+}

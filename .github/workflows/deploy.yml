@@ -1,0 +1,94 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+# Minimal permissions; deploy job gets id-token for OIDC
+permissions:
+  contents: read
+
+# Ensure only one deployment at a time; cancel obsolete runs
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  validate-and-build:
+    name: Validate & Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Lint code
+        run: pnpm lint:code
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Validate content
+        run: pnpm validate:content
+
+      - name: Extract examples
+        run: pnpm examples:extract
+
+      - name: Type-check examples
+        run: pnpm examples:typecheck
+
+      - name: Run unit tests
+        run: pnpm test:unit
+
+      - name: Build site
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: pnpm build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate-and-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Generate deployment summary
+        run: |
+          echo "## Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Deployed to: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY

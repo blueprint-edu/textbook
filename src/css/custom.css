@@ -1,0 +1,380 @@
+/**
+ * Blueprint Textbook — Custom CSS Theme
+ *
+ * Semantic design tokens are defined here.
+ * Light-blue academic theme with accessible contrast.
+ * WCAG 2.2 AA target for all foreground/background pairs.
+ */
+
+/* --------------------------------------------------------------------------
+ * Design tokens — Light theme
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* Primary palette */
+  --bp-blue-50: #eff6ff;
+  --bp-blue-100: #dbeafe;
+  --bp-blue-200: #bfdbfe;
+  --bp-blue-500: #3b82f6;
+  --bp-blue-600: #2563eb;
+  --bp-blue-700: #1d4ed8;
+  --bp-blue-800: #1e40af;
+  --bp-blue-900: #1e3a5f;
+
+  /* Semantic tokens */
+  --bp-color-primary: var(--bp-blue-600);
+  --bp-color-primary-hover: var(--bp-blue-700);
+  --bp-color-link: var(--bp-blue-700);
+  --bp-color-focus-ring: var(--bp-blue-500);
+  --bp-color-page-bg: #f0f6ff;
+  --bp-color-surface-bg: #ffffff;
+  --bp-color-text-primary: #1a2332;
+  --bp-color-text-secondary: #4a5568;
+  --bp-color-border: #cbd5e0;
+  --bp-color-border-subtle: #e2e8f0;
+  --bp-color-code-bg: #f0f4f8;
+
+  /* Status colors */
+  --bp-color-success: #065f46;
+  --bp-color-success-bg: #ecfdf5;
+  --bp-color-warning: #78350f;
+  --bp-color-warning-bg: #fffbeb;
+  --bp-color-error: #7f1d1d;
+  --bp-color-error-bg: #fef2f2;
+
+  /* Teaching-specific */
+  --bp-color-teaching-error-text: #92400e;
+  --bp-color-teaching-error-bg: #fef3c7;
+  --bp-color-teaching-error-border: #fbbf24;
+  --bp-color-type-error-border: #d97706;
+  --bp-color-runtime-error-text: #991b1b;
+  --bp-color-runtime-error-bg: #fee2e2;
+  --bp-color-runtime-error-border: #fca5a5;
+  --bp-color-diagnostic-error: #b91c1c;
+  --bp-color-diagnostic-warning: #92400e;
+  --bp-color-diagnostic-suggestion: #1e3a5f;
+
+  /* Docusaurus variable overrides */
+  --ifm-color-primary: var(--bp-blue-600);
+  --ifm-color-primary-dark: var(--bp-blue-700);
+  --ifm-color-primary-darker: #1a56db;
+  --ifm-color-primary-darkest: var(--bp-blue-800);
+  --ifm-color-primary-light: #4f8ef5;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: var(--bp-blue-200);
+  --ifm-background-color: var(--bp-color-page-bg);
+  --ifm-background-surface-color: var(--bp-color-surface-bg);
+  --ifm-color-content: var(--bp-color-text-primary);
+  --ifm-color-content-secondary: var(--bp-color-text-secondary);
+  --ifm-font-family-base:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --ifm-font-family-monospace:
+    "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, "SFMono-Regular", Consolas,
+    "Liberation Mono", Menlo, monospace;
+  --ifm-heading-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ifm-line-height-base: 1.75;
+  --ifm-heading-line-height: 1.3;
+  --ifm-font-size-base: 16px;
+  --ifm-code-font-size: 0.875rem;
+  --ifm-global-radius: 6px;
+  --ifm-code-border-radius: 4px;
+  --ifm-pre-border-radius: 6px;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.12);
+  --ifm-code-background: var(--bp-color-code-bg);
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ifm-footer-background-color: var(--bp-blue-900);
+  --ifm-footer-color: #e2e8f0;
+  --ifm-footer-link-color: var(--bp-blue-200);
+  --ifm-footer-link-hover-color: #ffffff;
+  --ifm-toc-border-color: var(--bp-color-border-subtle);
+  --ifm-link-color: var(--bp-color-link);
+  --ifm-link-hover-color: var(--bp-color-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+ * Design tokens — Dark theme
+ * -------------------------------------------------------------------------- */
+
+[data-theme="dark"] {
+  --bp-color-primary: #60a5fa;
+  --bp-color-primary-hover: #93c5fd;
+  --bp-color-link: #60a5fa;
+  --bp-color-focus-ring: #93c5fd;
+  --bp-color-page-bg: #0d1e2f;
+  --bp-color-surface-bg: #1a2d40;
+  --bp-color-text-primary: #e2e8f0;
+  --bp-color-text-secondary: #94a3b8;
+  --bp-color-border: #2d4052;
+  --bp-color-border-subtle: #1e3048;
+  --bp-color-code-bg: #132032;
+
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  --ifm-background-color: var(--bp-color-page-bg);
+  --ifm-background-surface-color: var(--bp-color-surface-bg);
+  --ifm-color-content: var(--bp-color-text-primary);
+  --ifm-color-content-secondary: var(--bp-color-text-secondary);
+  --ifm-code-background: var(--bp-color-code-bg);
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.15);
+  --ifm-navbar-background-color: #132032;
+  --ifm-footer-background-color: #0a1829;
+  --ifm-toc-border-color: var(--bp-color-border-subtle);
+  --ifm-link-color: var(--bp-color-link);
+
+  /* Dark teaching colors */
+  --bp-color-teaching-error-text: #fef3c7;
+  --bp-color-teaching-error-bg: #451a03;
+  --bp-color-teaching-error-border: #78350f;
+  --bp-color-runtime-error-text: #fee2e2;
+  --bp-color-runtime-error-bg: #450a0a;
+  --bp-color-runtime-error-border: #7f1d1d;
+  --bp-color-diagnostic-error: #f87171;
+  --bp-color-diagnostic-warning: #fbbf24;
+  --bp-color-diagnostic-suggestion: #93c5fd;
+}
+
+/* --------------------------------------------------------------------------
+ * Global resets & base
+ * -------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Readable max-width for prose */
+.markdown {
+  max-width: 72ch;
+}
+
+/* Comfortable reading */
+.container {
+  max-width: 1200px;
+}
+
+/* --------------------------------------------------------------------------
+ * Typography
+ * -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content);
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-bottom: 2px solid var(--bp-color-border-subtle);
+  padding-bottom: 0.35rem;
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+}
+
+p {
+  line-height: var(--ifm-line-height-base);
+}
+
+/* --------------------------------------------------------------------------
+ * Accessibility: Focus visible
+ * -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 3px solid var(--bp-color-focus-ring);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Skip-to-content link */
+a.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+a.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: var(--ifm-global-radius);
+  z-index: 9999;
+  text-decoration: none;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+ * Navbar
+ * -------------------------------------------------------------------------- */
+
+.navbar {
+  border-bottom: 1px solid var(--bp-color-border-subtle);
+}
+
+.navbar__title {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--bp-color-primary);
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------------------
+ * Sidebar
+ * -------------------------------------------------------------------------- */
+
+.menu__link--active {
+  font-weight: 600;
+  background: var(--bp-blue-50);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .menu__link--active {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+ * Admonitions
+ * -------------------------------------------------------------------------- */
+
+.alert--info {
+  background: var(--bp-blue-50);
+  border-left-color: var(--bp-color-primary);
+}
+
+[data-theme="dark"] .alert--info {
+  background: rgba(96, 165, 250, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+ * Code blocks
+ * -------------------------------------------------------------------------- */
+
+code {
+  background: var(--bp-color-code-bg);
+  border: 1px solid var(--bp-color-border-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  font-size: 0.875em;
+}
+
+pre > code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+pre {
+  border: 1px solid var(--bp-color-border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+ * Tables
+ * -------------------------------------------------------------------------- */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+th {
+  background: var(--bp-blue-50);
+  text-align: left;
+  font-weight: 600;
+}
+
+[data-theme="dark"] th {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+th,
+td {
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--bp-color-border);
+}
+
+tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* --------------------------------------------------------------------------
+ * Footer
+ * -------------------------------------------------------------------------- */
+
+.footer {
+  border-top: 2px solid var(--ifm-color-primary-darkest);
+}
+
+.footer__title {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+ * Responsive
+ * -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .markdown {
+    max-width: 100%;
+  }
+}
