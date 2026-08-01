@@ -15,7 +15,7 @@ By the end of this section, you will be able to:
 
 ## Introduction
 
-Retrospectives give teams space to reflect on their process. The goal is continuous improvement—not blame, but honest conversation about what helps and what hinders the team.
+Retrospectives give teams space to reflect on their process. The goal is continuous improvement rather than blame, with honest conversation about what helps and what hinders the team.
 
 :::info Content forthcoming
 

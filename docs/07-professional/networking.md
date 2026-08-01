@@ -15,7 +15,7 @@ By the end of this section, you will be able to:
 
 ## Introduction
 
-Networking is how engineers find opportunities and stay current with the field. It extends beyond job searching—it's how you build a professional reputation and learn from peers.
+Networking is how engineers find opportunities and stay current with the field. It extends beyond job searching. It is how you build a professional reputation and learn from peers.
 
 :::info Content forthcoming
 

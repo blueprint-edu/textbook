@@ -33,3 +33,19 @@ console.log(applyTwice(double, 3)); // 12
 Full content for this section is under active development. Check back soon.
 
 :::
+
+{/* epoch-tie-ins:start */}
+
+{/* Generated from blueprint.yaml by scripts/generate-epoch-tie-ins.ts. Do not edit by hand; run `pnpm generate:tie-ins`. */}
+
+{/* prose-ignore-start */}
+
+:::info[This section prepares you for E2 (week 2)]
+
+- **E2.9: QuestionBank component.** As an instructor, I need to view a filtered question bank and skill summary.
+
+:::
+
+{/* prose-ignore-end */}
+
+{/* epoch-tie-ins:end */}

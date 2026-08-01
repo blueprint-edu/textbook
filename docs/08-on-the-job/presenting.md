@@ -15,7 +15,7 @@ By the end of this section, you will be able to:
 
 ## Introduction
 
-Software engineers present their work regularly—at demos, reviews, and conferences. Communicating technical work clearly is as important as the work itself.
+Software engineers present their work regularly at demos, reviews, and conferences. Communicating technical work clearly is as important as the work itself.
 
 :::info Content forthcoming
 

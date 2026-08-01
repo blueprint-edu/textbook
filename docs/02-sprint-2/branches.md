@@ -11,7 +11,7 @@ By the end of this section, you will be able to:
 
 - Create and switch between Git branches.
 - Merge a feature branch into main.
-- Resolve a simple merge conflict.
+- Resolve a small merge conflict.
 
 ## Introduction
 

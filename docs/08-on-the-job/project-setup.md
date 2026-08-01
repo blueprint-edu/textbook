@@ -15,7 +15,7 @@ By the end of this section, you will be able to:
 
 ## Introduction
 
-Your first task on a new project is often just getting it running. Reading documentation, understanding the project structure, and following setup steps are essential skills.
+Your first task on a new project is often getting it running. Reading documentation, understanding the project structure, and following setup steps are essential skills.
 
 :::info Content forthcoming
 

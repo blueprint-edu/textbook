@@ -22,3 +22,19 @@ JavaScript objects are passed by reference, not by value. Understanding this dis
 Full content for this section is under active development. Check back soon.
 
 :::
+
+{/* epoch-tie-ins:start */}
+
+{/* Generated from blueprint.yaml by scripts/generate-epoch-tie-ins.ts. Do not edit by hand; run `pnpm generate:tie-ins`. */}
+
+{/* prose-ignore-start */}
+
+:::info[This section prepares you for E4 (week 4)]
+
+- **E4.11: Alias-safety contract and change-request release.** As the team, we need proof that state updates are mutation-safe under a changed requirement.
+
+:::
+
+{/* prose-ignore-end */}
+
+{/* epoch-tie-ins:end */}

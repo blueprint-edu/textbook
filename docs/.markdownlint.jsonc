@@ -1,0 +1,8 @@
+{
+  // Docs are compiled as MDX, so comments use {/* ... */} syntax, which
+  // MD037 misreads as unbalanced emphasis markers. Disabled for docs only.
+  "extends": "../.markdownlint.json",
+  "MD037": false,
+  // Chapter headings are allowed stylistic punctuation ("Wait A Second...").
+  "MD026": false,
+}

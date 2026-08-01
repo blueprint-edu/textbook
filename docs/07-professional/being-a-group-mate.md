@@ -15,7 +15,7 @@ By the end of this section, you will be able to:
 
 ## Introduction
 
-Technical skills only go so far. Being a great team member—reliable, communicative, and supportive—is equally important for long-term career success.
+Technical skills only go so far. Being a great team member who is reliable, communicative, and supportive matters as much as technical skill for long-term career success.
 
 :::info Content forthcoming
 
