@@ -15,7 +15,7 @@ By the end of this section, you will be able to:
 
 ## Done Is a Definition, Not a Feeling
 
-"It works" is the least trustworthy sentence in software. Works on whose machine? With which inputs? Formatted how? Agile teams replace the feeling with a **Definition of Done**: a written checklist that a piece of work either satisfies or does not, with no judgment calls at merge time.
+"It works" is the least trustworthy sentence in software. Works on whose machine? With which inputs? Formatted how? Agile teams replace the feeling with a **Definition of Done**: a written checklist that a piece of work either satisfies or does not.
 
 The work sample's definition of done is seven commands. An epoch is complete when every one of them succeeds:
 
@@ -27,13 +27,13 @@ The work sample's definition of done is seven commands. An epoch is complete whe
 6. `npm run build` produces a production bundle.
 7. `npm run mutation:check` shows every reference implementation passing and every curated mutant failing.
 
-Run each one now, on your freshly cloned repository, and watch them pass. You are expected to run them individually, and to know what each one is telling you, for the whole first epoch. There is a reason for that, and a payoff at the end of this section.
+Run each one now, on your freshly cloned repository (before you make any changes), and watch them pass. You are expected to run them individually, and to know what each one is telling you, for the whole first epoch.
 
 ## What Each Gate Catches
 
 - **`typecheck`** runs the TypeScript compiler with this project's maximum-strictness settings and no output files. It catches type errors everywhere, including files your tests never touch.
 - **`lint`** runs ESLint with type-aware rules. Linters catch legal-but-bad code: the banned `any` and friends, unused variables, missing return types, misused React hooks. Our configuration treats every warning as failing, because a tolerated warning pile grows until nobody reads it.
-- **`format:check`** runs Prettier in verification mode. Formatting is not a quality judgment; it is a peace treaty. Nobody on a team should spend review time on indentation, so a program decides, and everyone's diffs stay clean. `npm run format` fixes everything automatically, and your editor does it on save, so this gate should rarely fail.
+- **`format:check`** runs Prettier in verification mode. Everyone has opinions about how to format code, but most of the time it really doesn't matter. Nobody on a team should spend review time on indentation, so a program decides, and everyone's diffs stay clean. `npm run format` fixes everything automatically, and your editor does it on save, so this gate should rarely fail.
 - **`test`** you met in the previous section.
 - **`test:coverage`** runs the tests and then measures **coverage**: which lines, branches, and functions of the in-scope source files were actually executed by at least one test. The epoch's configuration lists which files are in scope, and the bar is full coverage of them. Be clear about what this means: coverage proves your tests _visited_ the code, not that they checked the right things there. A suite can execute every line and assert nothing. Full coverage is the floor, not the goal, which is exactly why the seventh gate exists.
 - **`build`** produces the optimized production bundle that GitHub Pages will serve. It can fail even when everything else passes, and finding that out at deploy time is the wrong time.
@@ -47,6 +47,11 @@ Seven commands is a lot of typing, and you have now run each enough times to kno
 "check": "npm run typecheck && npm run lint && npm run format:check && npm run test && npm run test:coverage && npm run build && npm run mutation:check"
 ```
 
+:::warning
+
+The `package.json` file is a JSON file, and has strict rules about commas. If you add the `"check"` line at the end of the `"scripts"` section, make sure the previous line has a comma at the end. Otherwise, the file will be invalid JSON.
+:::
+
 Then run it:
 
 ```bash
@@ -57,7 +62,7 @@ The `&&` operator chains commands and stops at the first failure, so `check` fai
 
 Notice what you did: you found a repetitive manual process and encoded it as a program. That instinct, applied relentlessly, is a large fraction of what senior engineers actually do. But it was important to see how these things worked in isolation: Automation you understand is a tool, automation you don't is a superstition.
 
-Note that `check` is yours. The repository does not ship it, the graders run the seven gates independently, and your peers may write theirs in a different order.
+The `check` command is yours. The repository does not ship it, the graders run the seven gates independently.
 
 ## Continuous Integration
 

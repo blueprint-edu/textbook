@@ -58,8 +58,6 @@ That is the whole loop: branch, work to the definition of done, PR, review, merg
 
 Merge the `epoch-1` branch in your repository and open `curriculum/epoch-1.md`. It lists ten tasks, E1.1 through E1.10: the domain types, the pure functions (several of which you have been circling all chapter), the four components of the static quiz preview, and the integration release. Everything in it is something this chapter prepared you for.
 
-Martin has already emailed to say she is "thrilled to see what you build!" Priya's advice stands: read the task document first, run the gates often, and ask questions early.
-
 {/* epoch-tie-ins:start */}
 
 {/* Generated from blueprint.yaml by scripts/generate-epoch-tie-ins.ts. Do not edit by hand; run `pnpm generate:tie-ins`. */}

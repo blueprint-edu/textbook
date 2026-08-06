@@ -47,9 +47,15 @@ describe("letterGrade", () => {
 });
 ```
 
-Read the `it` titles top to bottom and you get a specification in plain English. That is not an accident; it is the standard to hold your own titles to. A useful pattern for structuring the body of longer tests is **Given/When/Then**: given this setup, when this happens, then expect this result. For one-line tests like these it would be ceremony, but you will meet it again when tests grow.
+Read the `it` titles top to bottom and you get a specification in plain English. A useful pattern for structuring the body of longer tests is **Given/When/Then**:
 
-Notice which inputs the tests probe: 90, 89.9, 80, 69.9, 0. Boundary values, exactly where the bugs live. A test suite that only checks 95 and 20 would pass a broken implementation that put the B cutoff at 85. Choosing inputs that can tell a correct implementation from a plausible wrong one is the core skill of testing, and chapter 2 sharpens it into something the course literally grades with (mutation testing, for the curious who cannot wait).
+- given this setup,
+- when this happens,
+- then expect this result.
+
+For one-line tests like these it might feel silly, but it will make life easier when our tests grow.
+
+Notice which inputs the tests probe: 90, 89.9, 80, 69.9, 0. Boundary values, exactly where the bugs live. A test suite that only checks 95 and 20 would pass a broken implementation that put the B cutoff at 85. Choosing inputs that can tell a correct implementation from a plausible wrong one is the core skill of testing.
 
 ## Matchers
 
@@ -70,9 +76,9 @@ npm run test          # run the whole suite once
 npm run test:watch    # rerun affected tests every time you save
 ```
 
-Watch mode is the one you will live in: keep it running in a terminal while you implement, and every save tells you within seconds whether you moved forward or backward. A failing test prints the expected value, the received value, and the exact line of the failing assertion. That output is not scolding you; it is handing you the bug report.
+Watch mode is very useful: use it to keep tests running in a terminal while you implement, and every save tells you within seconds what the state of the code is. A failing test prints the expected value, the received value, and the exact line of the failing assertion. That output is not scolding you; it is handing you the bug report.
 
-The live block below fakes the experience in the browser so you can experiment right now. Real tests run in the terminal, not in the page:
+The live block below fakes the experience in the browser so you can see _basically_ what these tests are doing. It's not magic!
 
 ```ts live id=ch1-s6-assertion title="An assertion, approximately" expect=pass console=open
 function formatQuestions(count: number): string {

@@ -20,11 +20,24 @@ A web page is a tree of **HTML elements**: headings (`h1` through `h6`), paragra
 - **Elements nest.** A list contains list items; a `section` contains a heading and paragraphs. The browser turns the whole document into a tree (the DOM) and renders it.
 - **Elements mean things.** A `button` is not a styled box; it is a control the browser makes keyboard-operable and announces to screen readers. `header`, `main`, `section`, and `article` describe a page's structure to software, not to eyes.
 
-That second fact is called **semantic HTML**, and this course is serious about it: use the element that says what the thing _is_, and reach for a meaning-free `div` only when nothing meaningful fits. The work sample's tests find elements by their meaning ("the button named Submit", "the heading"), so unsemantic markup does more than offend taste here; it fails.
+That second fact is called **semantic HTML**: use the element that says what the thing _is_, and reach for a meaning-free `div` only when nothing meaningful fits. The work sample's tests find elements by their meaning ("the button named Submit", "the heading"), so unsemantic markup does more than offend taste here; it fails.
+
+Let's look at a simple example:
+
+```tsx live id=ch1-s8-html title="Basic HTML structure" expect=pass
+export default function App() {
+  return (
+    <main>
+      <h1>Welcome to the Quiz App</h1>
+      <p>This is a simple example of HTML structure in TSX.</p>
+    </main>
+  );
+}
+```
 
 ## CSS, Briefly
 
-CSS styles the tree with rules: selectors that pick elements, and declarations that set their appearance. You will mostly select by **class**:
+CSS styles the tree with rules: selectors that pick elements, and declarations that set their appearance. You will mostly select by **class** using a period in front of the **CSS selector**:
 
 ```css
 .question-card {
@@ -63,16 +76,14 @@ export default function App() {
 
 The pieces, one at a time:
 
-- **A props interface.** `GreetingProps` declares exactly what data the component accepts, and the compiler holds every caller to it. Try passing `name={42}` and see.
-- **A named function** that destructures its props in the parameter list. Component names are capitalized; that is how TSX tells `<Greeting />` from `<h2>`.
+- **A props interface.** `GreetingProps` declares exactly what data the component accepts, and the compiler holds every caller to it. Try passing `name={42}` and see. We'll talk more about this in a later chapter.
+- **A named function** that destructures its props in the parameter list. Component names are capitalized; that is how TSX tells `<Greeting />` from `<h2>`. Again, we'll come back to this weird syntax.
 - **Curly braces embed expressions.** `{name}` drops a TypeScript value into the markup. Anything that produces a value works: `{formatQuestions(3)}`, `{count + 1}`.
 - **Components compose like elements.** `App` uses `Greeting` twice with different props, the same way it would use any HTML element.
 
-In the work sample itself, exported components also carry an explicit return type (`ReactElement`, imported from React), because our lint rules require explicit types on exported functions. The playground on this page skips that detail; the epoch stubs show it in place.
-
 ## Rendering a List
 
-The pattern you will use most in epoch 1: turning an array of data into a list of elements with `map`.
+In epoch 1, you will sometimes need to render arrays of data with `map`. We haven't taught you these in detail yet, but let's take a look anyway.
 
 ```tsx live id=ch1-s8-option-list title="Data to markup" expect=pass
 interface AnswerOption {

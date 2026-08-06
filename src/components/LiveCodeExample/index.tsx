@@ -55,11 +55,21 @@ export interface LiveCodeExampleProps {
 
 /** Minimal prop subset we pass to the LiveCodes React component. */
 interface LivecodesProps {
+  appUrl?: string;
   config?: Record<string, unknown>;
   style?: React.CSSProperties;
   className?: string;
   title?: string;
 }
+
+/**
+ * Pinned LiveCodes app version (see https://livecodes.io/docs/features/permanent-url).
+ * v49 (current livecodes.io) has a regression: the Monaco model for TSX projects is
+ * created with a .ts filename, so the editor flags every JSX element as a type error
+ * ("Cannot find name 'main'", etc.). v48 names the model .tsx and checks cleanly.
+ * Pinning also protects examples from future upstream breaking changes.
+ */
+const LIVECODES_APP_URL = "https://v48.livecodes.io";
 
 // ---------------------------------------------------------------------------
 // Lazy-loaded LiveCodes
@@ -267,6 +277,7 @@ export default function LiveCodeExample({
         >
           <div className={styles.playground} style={{ height: `${height}px` }}>
             <LivecodesReact
+              appUrl={LIVECODES_APP_URL}
               config={playgroundConfig}
               style={{ height: "100%", width: "100%", border: "none" }}
               title={ariaLabel}

@@ -96,5 +96,13 @@
   },
   "engines": {
     "node": ">=20.0"
-  }
+  },
+  "description": "An interactive, production-ready Docusaurus 3 textbook for software engineering courses, featuring embedded LiveCodes playgrounds, TypeScript diagnostics, and automated example validation.",
+  "main": "jest.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
