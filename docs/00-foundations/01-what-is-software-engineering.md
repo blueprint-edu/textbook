@@ -17,19 +17,19 @@ By the end of this section, you will be able to:
 
 Programming is writing instructions that a computer will execute. The instructions manipulate data: numbers, text, lists, records, and structures built out of all of those. A program takes data in, transforms it, and produces data out, whether the output is a number printed to a console or a button appearing on a screen.
 
-People sometimes use "coding" for the narrow act of typing the instructions and "programming" for the broader activity of figuring out what instructions to write. But in practice, what matters is what both words leave out: everything that happens around the code.
+People sometimes use "coding" for the narrow act of typing the instructions and "programming" for the broader activity of figuring out what instructions to write. That doesn't really matter compared to the bigger picture: everything that happens around the code.
 
 ## Programming versus software engineering
 
-If programming is making the computer do something, software engineering is making software that keeps working: over time, for real users, in the hands of a team. [Titus Winters](https://abseil.io/resources/swe-book) described software engineering as "programming integrated over time" (as in, repeated over time), and that framing holds up remarkably well.
+If programming is making the computer do something, software engineering is making software that keeps working: over time, for real users, in the hands of a team. [Titus Winters](https://abseil.io/resources/swe-book) described software engineering as "programming integrated over time" (as in, repeated over time).
 
 Consider the differences between a homework assignment and a real product.
 
 - A homework program runs **once**, for you, tonight. A product runs for **years**, for people you will never meet, long after you have forgotten how it works.
 - A homework program is written by **one** person who holds the whole design in their head. A product is written by a **team**, and no single person holds all of it.
-- When a homework program fails, you lose **points**. When a product fails, people lose **money, health records, or (worst of all) student grades**.
+- When a homework program fails, you lose **points**. When a product fails, people lose **money, health records, or (worst of all) student grade records**.
 
-None of the practices in this book exist because programming is hard in the puzzle-solving sense. They exist because time, teammates, and stakes turn correct-tonight code into wrong-next-month code, and engineers need defenses against that decay.
+None of the practices in this book exist because programming is hard in the puzzle-solving sense. They exist because time, teammates, and stakes turn correct-tonight code into wrong-next-month code, and engineers need defenses against that decay. This is true regardless of how smart AI gets about writing code, because fundamentally people like to work with other people.
 
 ## What software engineers actually do
 
@@ -53,15 +53,13 @@ Throughout this book you will meet practices that can feel like bureaucracy on d
 - agile ceremonies you must perform, and
 - reviews you must wait for before merging.
 
-Each one is a defense that came from a past failure. Every practice converts a late, expensive surprise into an early, cheap annoyance. You want to "shift errors to the left" (earlier in the timeline). A type error at compile time is an annoyance; the same mistake discovered by a customer costs money. A failing test on your laptop is an annoyance; the same defect in production costs you your weekend. Engineers accept small frictions on purpose, because they have seen the alternative.
-
-You do not have to take this on faith. The course is arranged so that the practices pay off in front of you, on a project big enough for shortcuts to hurt. I mean, as best we could. It's impossible to make a course exactly like the real thing.
+Each one is a defense that came from a past failure. Every practice converts a late, expensive surprise into an early, cheap annoyance. You want to ["shift errors to the left"](https://en.wikipedia.org/wiki/Shift-left_testing) (earlier in the timeline). A type error at compile time is an annoyance; the same mistake discovered by a customer costs money. A failing test on your laptop is an annoyance; the same defect in production costs you your weekend. Engineers accept small frictions on purpose because they have seen the alternative.
 
 ## Where this course fits
 
 By now, you should have written code with classes, objects, and tests. This course is about the engineering around the programming, and it is organized the way working engineers organize their time.
 
-For the first five weeks, you will be working on a quiz application called Quizzer. This won't be a real product, of course, but you should still learn a lot building it. The goal is to model what software engineers do in the real world, while also evaluating your ability to complete tasks.
+For the first five weeks, you will be working on a software application. The goal is to model what software engineers do in the real world, while also evaluating your ability to complete tasks.
 
 After the work sample comes an interview, where we will assess what you have learned. If you pass the interview, then you will join a team and build something larger together: with sprints, standups, reviews, and retrospectives.
 

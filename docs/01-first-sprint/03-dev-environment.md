@@ -140,7 +140,7 @@ Open the address Vite prints, and you should see the Quizzer application shell. 
 
 Once you have the project installed locally, you will need an editor to work in. You will be using VS Code for this course. It is free, cross-platform, and has a ton of extensions that make it a great editor for web development.
 
-Install it from <https://code.visualstudio.com/Download>
+Install it from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)
 
 Once VS Code is open, find the folder you cloned and open it. You should see the project files in the left sidebar.
 

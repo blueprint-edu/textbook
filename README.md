@@ -270,8 +270,8 @@ GITHUB_REPOSITORY=myorg/myname.github.io pnpm start
 The problem statement assigns two sections the heading "User Research"
 (3.1 and 6.2). The repository resolves this by naming them:
 
-- `docs/03-user-research/user-research.md` — Chapter 3.1
-- `docs/06-analysis/user-research-contextual-inquiry.md` — Chapter 6.2
+- `docs/03-user-research/01-user-research.md` — Chapter 3.1
+- `docs/06-analysis/02-user-research-contextual-inquiry.md` — Chapter 6.2
 
 Both have distinct `sidebar_position` values and unique filenames.
 

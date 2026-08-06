@@ -15,23 +15,23 @@ By the end of this section, you will be able to:
 
 ## A Note From Your Mentor
 
-> **From:** Priya Ramachandran, Engineering Lead, Quizzer  
-> **To:** You  
-> **Subject:** Work Sample
->
-> Hi, I'm Priya, the Engineering Lead. I guess I'm your assigned mentor. Yippee.
->
-> Quizzer is our quiz authoring and delivery tool. The feature that makes it interesting: when learners answer a question, they also report how confident they were. Confident and wrong is the most dangerous state a learner can be in, so Quizzer finds those moments and builds a review queue out of them.
->
-> Your work sample is a working slice of Quizzer, built over five weekly epochs. Each epoch has tasks with user stories and acceptance criteria, and each task has tests. The bar is the same one my team uses: it is done when every check passes, not when it seems to work. Just because it works on your laptop, doesn't really matter - unless you're willing to permanently give me your laptop (I could use a new one).
->
-> Ask questions early. Nobody here expects you to know everything; we expect you to find out.
->
-> Priya
+<Email from="Priya Ramachandran, Engineering Lead, Quizzer" subject="Work Sample">
+
+Hi, I'm Priya, the Engineering Lead. I'll be your assigned mentor.
+
+Quizzer is our quiz authoring and delivery tool. The feature that makes it interesting: when learners answer a question, they also report how confident they were. Confident and wrong is the most dangerous state a learner can be in, so Quizzer finds those moments and builds a review queue out of them.
+
+Your work sample is a working slice of Quizzer, built over five weekly epochs. Each epoch has tasks with user stories and acceptance criteria, and each task has tests. The bar is the same one my team uses: it is done when every check passes, not when it seems to work. Just because it works on your laptop, doesn't really matter - unless you're willing to permanently give me your laptop (I could use a new one).
+
+Ask questions early. Nobody here expects you to know everything; we expect you to find out.
+
+Priya
+
+</Email>
 
 ## What You Are Building
 
-Quizzer, as your work sample covers it, is a client-side web application where an instructor can author a quiz and a learner can take it: answering questions, reporting confidence, flagging items, and receiving scored results with a review queue that prioritizes high-confidence misconceptions. By the end of epoch 5 it will be deployed on GitHub Pages.
+Quizzer, as your work sample covers it, is a client-side web application where an instructor can author a quiz and a learner can take it: answering questions, reporting confidence, flagging items, and receiving scored results with a review queue that prioritizes high-confidence misconceptions. By the end of epoch 5 it will be fully deployed on GitHub Pages.
 
 You build it in five **epochs**, one per week, each matched to a chapter of this book:
 

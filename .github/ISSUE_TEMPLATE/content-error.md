@@ -8,7 +8,7 @@ assignees: ""
 
 ## Location
 
-<!-- File path and section number, e.g. docs/01-first-sprint/typescript.md §1.5 -->
+<!-- File path and section number, e.g. docs/01-first-sprint/05-typescript.md §1.5 -->
 
 ## Description
 
