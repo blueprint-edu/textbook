@@ -38,6 +38,7 @@
     "@docusaurus/theme-common": "3.10.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "docusaurus-plugin-glossary": "^3.3.4",
     "livecodes": "^0.14.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",

@@ -2,6 +2,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import remarkLiveCode from "./plugins/remark-live-code";
+import { getRemarkPlugin as getGlossaryRemarkPlugin } from "docusaurus-plugin-glossary";
 
 /**
  * GitHub Pages configuration.
@@ -19,6 +20,18 @@ const isOrgPages = githubRepo.toLowerCase() === `${githubOrg.toLowerCase()}.gith
 
 const repoUrl = `https://github.com/${githubOrg}/${githubRepo}`;
 
+const baseUrl = isOrgPages ? "/" : `/${githubRepo}/`;
+
+/**
+ * The glossary plugin registers its route verbatim, without prepending
+ * `baseUrl`, so the base has to be baked in here for the page to be reachable
+ * on GitHub Pages project sites.
+ */
+const glossaryOptions = {
+  glossaryPath: "glossary/glossary.json",
+  routePath: `${baseUrl}glossary`,
+};
+
 const config: Config = {
   title: "Blueprint: Software Engineering Textbook",
   tagline: "An interactive, practical guide to software engineering fundamentals.",
@@ -29,7 +42,7 @@ const config: Config = {
   },
 
   url: `https://${githubOrg}.github.io`,
-  baseUrl: isOrgPages ? "/" : `/${githubRepo}/`,
+  baseUrl,
   trailingSlash: false,
 
   organizationName: githubOrg,
@@ -60,7 +73,10 @@ const config: Config = {
           editUrl: `${repoUrl}/edit/main/`,
           showLastUpdateTime: false,
           breadcrumbs: true,
-          remarkPlugins: [remarkLiveCode],
+          remarkPlugins: [
+            remarkLiveCode,
+            getGlossaryRemarkPlugin(glossaryOptions, { siteDir: __dirname }),
+          ],
         },
         blog: false,
         theme: {
@@ -74,6 +90,8 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+
+  plugins: [["docusaurus-plugin-glossary", glossaryOptions]],
 
   themeConfig: {
     image: "img/social-card.png",
@@ -100,6 +118,11 @@ const config: Config = {
           sidebarId: "textbookSidebar",
           position: "left",
           label: "Textbook",
+        },
+        {
+          to: "/glossary",
+          position: "left",
+          label: "Glossary",
         },
         {
           to: "/docs/authoring-code-examples",
@@ -129,6 +152,7 @@ const config: Config = {
               to: "/docs/first-sprint/apply-to-the-company",
             },
             { label: "Live Examples Demo", to: "/docs/examples-demo" },
+            { label: "Glossary", to: "/glossary" },
           ],
         },
         {

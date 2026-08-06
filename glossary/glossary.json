@@ -1,0 +1,175 @@
+{
+  "title": "Glossary",
+  "description": "Key terms used throughout the textbook, defined the way the book uses them.",
+  "terms": [
+    {
+      "term": "Agile",
+      "definition": "A family of development practices built on short cycles: plan a little, build a working slice, show it to people, learn, and repeat. The bet is to be wrong early and cheaply instead of late and expensively.",
+      "relatedTerms": ["Sprint", "Waterfall"]
+    },
+    {
+      "term": "Waterfall",
+      "definition": "The older planning model that runs in one long pass: gather all the requirements, design the whole system, build it, test it, ship it. Its fatal flaw is that the plan is finished at the moment you know the least.",
+      "relatedTerms": ["Agile"]
+    },
+    {
+      "term": "Sprint",
+      "definition": "A fixed window of time, usually one to four weeks, in which the team commits to a small set of work and finishes it to a defined standard. The deadline does not move, so scope has to be chosen honestly.",
+      "relatedTerms": ["Sprint Planning", "Daily Standup", "Sprint Review", "Sprint Retrospective"]
+    },
+    {
+      "term": "Sprint Planning",
+      "definition": "The event that starts a sprint: choose what to take on, break it into tasks, and agree on what done means for each.",
+      "relatedTerms": ["Sprint", "Backlog", "Definition of Done"]
+    },
+    {
+      "term": "Daily Standup",
+      "aliases": ["standup"],
+      "definition": "A minutes-long daily sync: what I did, what I am doing, what is blocking me. Its purpose is surfacing blockers, not reporting to a boss.",
+      "relatedTerms": ["Sprint"]
+    },
+    {
+      "term": "Sprint Review",
+      "definition": "The event that ends a sprint by demonstrating working software to people outside the team and collecting their reactions.",
+      "relatedTerms": ["Sprint", "Sprint Retrospective"]
+    },
+    {
+      "term": "Sprint Retrospective",
+      "aliases": ["retrospective"],
+      "definition": "The team alone at the end of a sprint, asking what about the process helped, what hurt, and what to change next sprint.",
+      "relatedTerms": ["Sprint", "Sprint Review"]
+    },
+    {
+      "term": "Backlog",
+      "definition": "The ordered list of work the team has agreed matters but has not yet scheduled into a sprint.",
+      "relatedTerms": ["Sprint Planning", "User Story"]
+    },
+    {
+      "term": "User Story",
+      "definition": "A short description of a feature from the user's point of view, usually in the form \"As a ..., I want ..., so that ...\". It names who benefits and why, before anyone argues about how.",
+      "relatedTerms": ["Acceptance Criteria", "Backlog"]
+    },
+    {
+      "term": "Acceptance Criteria",
+      "definition": "The specific, checkable conditions a task must meet before it counts as done. Written down before the work starts, so nobody argues afterward.",
+      "relatedTerms": ["User Story", "Definition of Done"]
+    },
+    {
+      "term": "Definition of Done",
+      "definition": "The standard a task must meet before it moves to Done: the code builds, the checks pass, and the work is reviewed. \"Almost done\" does not count.",
+      "relatedTerms": ["Acceptance Criteria", "Continuous Integration"]
+    },
+    {
+      "term": "Version Control",
+      "definition": "A system that records the history of changes to files so a team can collaborate, review, and roll back. Git is the version control tool used in this book.",
+      "relatedTerms": ["Repository", "Commit", "Branch"]
+    },
+    {
+      "term": "Repository",
+      "aliases": ["repo"],
+      "definition": "A project tracked by version control: the files plus their entire recorded history.",
+      "relatedTerms": ["Version Control", "Branch", "Commit"]
+    },
+    {
+      "term": "Commit",
+      "autoLink": false,
+      "definition": "A recorded snapshot of changes in version control, with a message explaining why the change was made.",
+      "relatedTerms": ["Version Control", "Repository", "Branch"]
+    },
+    {
+      "term": "Branch",
+      "definition": "A movable line of development in a repository. Work happens on a branch so the main line stays releasable.",
+      "relatedTerms": ["Repository", "Merge Conflict", "Pull Request"]
+    },
+    {
+      "term": "Merge Conflict",
+      "definition": "What happens when two branches change the same lines and version control cannot pick a winner. A person has to decide.",
+      "relatedTerms": ["Branch", "Pull Request"]
+    },
+    {
+      "term": "Pull Request",
+      "aliases": ["PR"],
+      "definition": "A request to merge one branch's changes into another, packaged so teammates can review the work before it lands.",
+      "relatedTerms": ["Branch", "Code Review", "Merge Conflict"]
+    },
+    {
+      "term": "Code Review",
+      "definition": "Teammates reading a change before it merges, looking for defects, unclear code, and better options. Reviews catch what tests cannot.",
+      "relatedTerms": ["Pull Request"]
+    },
+    {
+      "term": "Continuous Integration",
+      "aliases": ["CI"],
+      "definition": "Automatically building and checking the project on every change, so integration problems surface within minutes instead of at the end.",
+      "relatedTerms": ["Definition of Done", "Unit Test", "Linter"]
+    },
+    {
+      "term": "TypeScript",
+      "definition": "A typed superset of JavaScript. The types let the compiler catch a whole category of mistakes before the program runs.",
+      "relatedTerms": ["Linter"]
+    },
+    {
+      "term": "Linter",
+      "aliases": ["linting", "lint"],
+      "definition": "A tool that reads source code and flags suspicious patterns: unused variables, unreachable code, style violations. It rejects some working code on purpose.",
+      "relatedTerms": ["Continuous Integration", "TypeScript"]
+    },
+    {
+      "term": "Unit Test",
+      "definition": "A small automated test that checks one piece of code in isolation and fails loudly when the behavior changes.",
+      "relatedTerms": ["Code Coverage", "Mutation Testing"]
+    },
+    {
+      "term": "Code Coverage",
+      "definition": "A measure of which lines or branches of code the tests actually execute. High coverage does not prove the tests are good; low coverage proves they are missing.",
+      "relatedTerms": ["Unit Test", "Mutation Testing"]
+    },
+    {
+      "term": "Mutation Testing",
+      "definition": "Deliberately introducing small bugs (mutants) into the code to see whether the tests catch them. A mutant that survives reveals a weak test.",
+      "relatedTerms": ["Unit Test", "Code Coverage"]
+    },
+    {
+      "term": "Higher-Order Function",
+      "aliases": ["higher order function"],
+      "definition": "A function that takes another function as an argument or returns one. The array methods map, filter, and reduce are the ones this book leans on."
+    },
+    {
+      "term": "Component",
+      "definition": "A reusable piece of user interface written as a function that takes props and returns TSX describing what to render.",
+      "relatedTerms": ["Props", "State"]
+    },
+    {
+      "term": "Props",
+      "definition": "The inputs a parent component passes to a child component. Props flow down; the child does not modify them.",
+      "relatedTerms": ["Component", "State"]
+    },
+    {
+      "term": "State",
+      "autoLink": false,
+      "definition": "Data a component remembers between renders. When state changes, the component re-renders to match.",
+      "relatedTerms": ["Component", "Props"]
+    },
+    {
+      "term": "Wireframe",
+      "aliases": ["wireframing"],
+      "definition": "A rough sketch of a user interface that shows layout and flow without visual polish. Cheap to draw, cheap to throw away.",
+      "relatedTerms": ["Usability Testing"]
+    },
+    {
+      "term": "Usability Testing",
+      "definition": "Watching a real person attempt real tasks with the software, to find where the design fails them.",
+      "relatedTerms": ["Wireframe", "Contextual Inquiry"]
+    },
+    {
+      "term": "Contextual Inquiry",
+      "definition": "A user research method: observe people doing their actual work in their actual environment, and ask questions as they go.",
+      "relatedTerms": ["Usability Testing"]
+    },
+    {
+      "term": "DevOps",
+      "definition": "The practice of unifying development and operations: the people who write the software also build, deploy, and monitor it.",
+      "relatedTerms": ["Continuous Integration"]
+    }
+  ]
+}

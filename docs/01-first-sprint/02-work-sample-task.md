@@ -33,7 +33,7 @@ Priya
 
 Quizzer, as your work sample covers it, is a client-side web application where an instructor can author a quiz and a learner can take it: answering questions, reporting confidence, flagging items, and receiving scored results with a review queue that prioritizes high-confidence misconceptions. By the end of epoch 5 it will be fully deployed on GitHub Pages.
 
-You build it in five **epochs**, one per week, each matched to a chapter of this book:
+Epochs are weekly segments of work, each focusing on a specific aspect of the application. You build Quizzer in five **epochs**, one per week, each matched to a chapter of this book:
 
 1. Domain types and pure functions, rendered as a static preview.
 2. Queries and transformations over quizzes.
@@ -41,7 +41,7 @@ You build it in five **epochs**, one per week, each matched to a chapter of this
 4. Editing and immutable updates.
 5. Scoring, analytics, and the review queue.
 
-Each epoch arrives as a _branch_ in your repository. Merging it adds that epoch's new files and rarely touches code you have already written. The task document under `curriculum/` will be the authoritative description of the work.
+We will be giving you a _repository_ of starter code. Each epoch arrives as a _branch_ in that repository. A branch is a separate line of development that allows you to work on new features or fixes without affecting the main codebase. Merging in a branch adds that epoch's new files. The task document under the `curriculum/` folder will be the authoritative description of the work.
 
 ## User Stories
 
@@ -68,13 +68,13 @@ Notice what makes these usable:
 - **Specific.** `"1 point"` with no s. A vague criterion ("displays points nicely") postpones the argument to review time.
 - **Bounded.** They also tell you what you are not building. Nothing here asks for localization or styling, so those are out of scope.
 
-In this course, acceptance criteria are backed by tests, some visible to you and some hidden until grading. Chapter 2 has more to say about that arrangement.
+In this course, acceptance criteria are backed by tests, some visible to you and some hidden until grading. We'll explain more in Chapter 2.
 
 Whenever you encounter a user story: read the criteria before the code, and turn each criterion into a test as you satisfy it.
 
 ## The Project Board
 
-Every epoch task also exists as a **GitHub issue** in your repository, and the issues are arranged on a **project board** with columns like Backlog, In Progress, and Done. The board answers, at a glance, the question every team constantly asks: what is the state of the work?
+Every epoch task also exists as a **GitHub issue** in your repository, and the issues are arranged on a **project board** with columns like "Backlog", "In Progress", and "Done". The board answers the question "what is the state of the work?"
 
 ![Project Board](project_board_ss.png)
 
@@ -83,8 +83,6 @@ Here's how you use it:
 - Move a task to "In Progress" when you start it, and limit how many live there at once. **Minimize how many are "in progress".** Work in progress is a cost, not an achievement.
 - Move it to "Done" only when it meets the acceptance criteria and definition of done (more on that later), not when it mostly works.
 - If a task is blocked, say so on the issue. A silent stuck task looks identical to a forgotten one.
-
-On a real team the board is shared, and keeping it current is how you avoid meetings. Here the team is you, but your peers will see your board when they review your work, and future you will thank present you for the paper trail.
 
 ## Coming Up
 

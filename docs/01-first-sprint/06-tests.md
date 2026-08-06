@@ -19,7 +19,7 @@ In much of software engineering, the tests _are_ the product spec. A paragraph o
 
 This has a practical consequence that will save you hours in this course: **if you cannot figure out why you are failing a test, read the test code.** The epoch tasks come with public tests, and every one of them is a precise, executable statement of what your function must do. Students who treat failing tests as obstacles have a bad time. Students who treat them as documentation finish early.
 
-The work sample uses [Vitest](https://vitest.dev), a fast test runner built by the same community as Vite. If you have seen Jest, Vitest's API is nearly identical on purpose.
+The work sample uses [Vitest](https://vitest.dev), a fast test runner built by the same community as Vite (a popular frontend build tool). If you have seen Jest, Vitest's API is nearly identical on purpose.
 
 ## The Anatomy of a Test
 

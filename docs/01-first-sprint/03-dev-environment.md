@@ -37,7 +37,7 @@ You're going to need six things to get started:
 5. The Work Sample repository
 6. Visual Studio Code
 
-Some of these steps might give you trouble. If you get stuck, ask a classmate or a TA. But you do need to figure it out.
+Some of these steps might give you trouble. If you get stuck, ask a classmate or a TA. But you do need to figure it out. You're a Software Engineer now, and that makes you the responsible adult in the room.
 
 ## GitHub
 
@@ -61,14 +61,12 @@ Git is a system for recording the history of a folder of files. It is distinct f
 
 Memorize these terms:
 
-- A **repository** is a folder whose history Git is tracking, plus that entire history.
+- A **repository** is a folder whose history Git is tracking, plus that entire history. The major difference between a regular folder and a Git repository is that a repository will have a hidden `.git` folder containing all of its history.
 - GitHub (and alternatives like GitLab or BitBucket) is a website hosting a ton of these repositories, which you can **clone** onto your computer to get your own copy of the files and their history.
 - We say that the repositories on GitHub are the **remote**, and the version on your computer is the **local**.
 - You **push** commits to a remote and **pull** commits from a remote. This let's you share your work with others and get their work.
 - A **commit** is a snapshot of the whole project at a moment you chose, with a message saying what changed and why.
-- A repository is essentially a chain of commits called the history, the timeline of the edits of the project.
-
-TODO: Need to make a diagram
+- A repository is essentially a chain of commits called the **history**, the timeline of the edits of the project.
 
 Git is great because it is:
 
@@ -80,7 +78,7 @@ Nearly everything in this course flows through Git, including turning in your wo
 
 ### Never Email Code Again
 
-You're never going to email code to anyone again. That looks super weird to a professional engineer. Instead, you will share code via GitHub. If you are only trying to share a short snippet, then you could use a Gist, which is a GitHub feature for sharing single files. But if you are sharing more than one file, you will always use a repository.
+You're never going to email code to anyone again. That looks super weird to a professional engineer. Instead, you will share code via GitHub. If you are only trying to share a short snippet, then you could use a [Gist](https://gist.github.com/), which is a GitHub feature for sharing single files. But if you are sharing more than one file, you will always use a repository.
 
 ### Check Git
 
@@ -128,6 +126,12 @@ npm install
 
 `npm install` downloads every library the project depends on into a folder called `node_modules`. It will be a few hundred megabytes. This is insane, but welcome to the future: modern web tooling is a tall stack of other people's work, and this is what standing on it costs. You never commit `node_modules`, and the project is already configured to ignore it.
 
+:::tip
+
+You are free to clone the repository to any folder that you want on your computer. But we strongly recommend that you be organized. For instance, you might have a `Projects` folder with a `cisc275` course folder, and then clone this repository into that folder.
+
+:::
+
 Then prove everything works:
 
 ```bash
@@ -144,11 +148,18 @@ Install it from [https://code.visualstudio.com/Download](https://code.visualstud
 
 Once VS Code is open, find the folder you cloned and open it. You should see the project files in the left sidebar.
 
-MAKE SURE THAT YOU OPEN THE FOLDER, NOT A PARENT OR CHILD FOLDER. If you open the wrong folder, the project will not work correctly. Often, folks will open a folder named `src` or the parent folder of the project. You need to open the folder that contains `package.json` and `vite.config.js`.
+MAKE SURE THAT YOU OPEN THE FOLDER, NOT A PARENT OR CHILD FOLDER. If you open the wrong folder, the project will not work correctly. Often, folks will open a folder named `src` or the parent folder of the project. You need to open the folder that contains `package.json` and `vite.config.js` at the top level.
 
 ### VS Code Extensions
 
-Install **ESLint** and **Prettier** from the Extensions panel. The project is configured so Prettier formats your file every time you save and ESLint underlines problems as you type. We'll explain them in more detail later.
+On the left side bar, you will see a button that looks like four squares arranged in a grid. Click this button to open the Extensions panel.
+
+In the search box, enter the following names and install the requisite extensions:
+
+- `eslint`
+- `prettier`
+
+The project is configured so Prettier formats your file every time you save and ESLint underlines problems as you type. We'll explain them in more detail later.
 
 ### Disabling AI Completion
 
@@ -162,7 +173,11 @@ Make sure that you can successfully run the project using the terminal inside of
 
 Once you have your environment all set up, you will need to make your first commit. A commit is a snapshot of the project at a point in time. You will be making commits throughout the course.
 
+:::tip
+
 Disciplined commit messages are important. They are the history of your project, and they should be clear and concise. A good commit message should answer the question: "What changed and why?" They are usually just a single line, often less than a sentence. For example, a commit message might be "Add a new feature to the quiz" or "Fix a bug in the scoring algorithm."
+
+:::
 
 To make your first commit, first modify a file and save the changes. In this case, you can modify the `README.md` file in the root of the project. Add a line that says "My first commit" and save the file.
 
@@ -178,7 +193,10 @@ You can also do this from the VS Code interface. You should see the changes in t
 
 You will need to get used to both interfaces, the command line and the VS Code interface.
 
+:::tip
+
 MAKE SMALL COMMITS REGULARLY. A good pattern is to commit after each problem in the course. You might also make commits as checkpoints so that you can roll back to a known good state if you get stuck. You will be graded on your commits down the road, so get good habits now.
+:::
 
 ## Coming Up
 

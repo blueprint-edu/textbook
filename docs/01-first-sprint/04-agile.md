@@ -15,11 +15,11 @@ By the end of this section, you will be able to:
 
 ## The Problem Agile Answers
 
-The older model of software planning, usually called **waterfall**, runs in one long pass: gather all the requirements, design the whole system, build it, test it, ship it. It sounds responsible, and for some projects (a flight controller, a pacemaker) something like it is genuinely required. For most software it has a fatal flaw: the plan is finished at the moment you know the least. Requirements turn out to be wrong, users want something different from what they said, and the world changes while you are building. Waterfall discovers all of this at the end, when it is most expensive.
+Back in the day, people used to follow a model named **waterfall** that ran in one long pass: gather all the requirements, design the whole system, build it, test it, ship it. For most software it has a fatal flaw: the plan is finished at the moment you know the least. Requirements turn out to be wrong, users want something different from what they said, and the world changes while you are building. Waterfall discovers all of this at the end, when it is most expensive.
 
 **Agile** is a family of practices built on the opposite bet: plan a little, build a working slice, show it to people, learn, and repeat. You will be wrong either way; agile arranges to be wrong early and cheaply instead of late and expensively. The [Agile Manifesto](https://agilemanifesto.org/) is a one-page statement of the values behind this, from 2001, and it is worth the two minutes it takes to read.
 
-Neither model is a religion, whatever its fans tell you. Agile done as empty ritual is common enough to have a name: [cargo-cult](https://en.wikipedia.org/wiki/Cargo_cult_programming) agile. The practices below matter because of what they let you learn, not because performing them earns points.
+Neither model is a religion (although some people treat Agile that way?). Agile done as empty ritual is common enough to have a name: [cargo-cult](https://en.wikipedia.org/wiki/Cargo_cult_programming) agile. The practices below matter because of what they let you learn, not because performing them earns points.
 
 ## Sprints and Their Events
 
